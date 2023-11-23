@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Data </title>
+    <style>
+        body{
+            background-color: grey;
+        }
+        table,
+        th,
+        tr,
+        td {
+            border: 2px solid black;
+            text-align: center;
+
+        }
+
+        th:hover {
+            background-color: red;
+        }
+
+        td:hover {
+            background-color: green;
+        }
+
+        tr:nth-child(odd) {
+            background-color: gold;
+        }
+
+
+
+        tr:nth-child(even) {
+            background-color: yellow;
+        }
+
+
+
+        button:nth-child(1),
+        button:nth-child(2) {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 800;
+            font-size: 15px;
+            text-transform: capitalize;
+
+        }
+
+        caption {
+            text-transform: capitalize;
+            background-color: green;
+            color: white;
+            border: 3px solid black;
+            text-shadow: 1px -1px 2px white;
+        }
+
+        /* form start */
+
+        form {
+            padding: 30px;
+            /* border: 5px solid green; */
+            background-color: #00b4ff;
+
+            border-radius: 20px;
+            box-shadow: 5px 4px 3px 2px rgb(179, 168, 168);
+
+        }
+        form input{
+            width: 100%;
+            padding: 4px 0px;
+            margin: 10px 0px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid white;
+         
+        }
+
+        form button{
+            display: block;
+            margin : auto;
+            padding: 10px 20px ;
+            border-radius: 20px;
+            border: none;
+            background: black;
+            cursor: pointer;
+            color: white;
+            text-transform: capitalize;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        form button:hover{
+            color: black;
+            background: white;
+        }
+        form label {
+            color: white;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 14px;
+            text-shadow: 0px 4px 2px black;
+        }
+
+        .formDisplay {
+            margin: auto;
+            display: block;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 60%;
+            left: 50%;
+        }
+
+       .and{
+
+        text-align: center;
+    margin: 30px 0px;
+    }
+    .and a {
+        text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 10px;
+    background: red;
+    margin-bottom: 40px;
+    }
+    .and a:hover {
+        text-decoration: none;
+    color: red;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 10px;
+    background: white;
+    margin-bottom: 40px;
+    }
+  
+    </style>
+</head>
+
+<body>
+
+ <div class="and">
+    <a href="./index.html">first task</a>
+    <a href="./readmore.html">second task</a>
+ </div>
+
+
+    <table style="width: 100%; border: 2px solid green;" id="table">
+        <caption>this is student data</caption>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Delete Data</th>
+            <th>Edit Data</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Sharjeel </td>
+            <td>10</td>
+            <td><button onclick="deleteRow()">Delete</button>
+            </td>
+            <td><button onclick="showForm()">Edit</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Usman </td>
+            <td>10</td>
+            <td><button onclick="deleteRow()">Delete</button>
+            <td><button onclick="showForm()">Edit</button></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Moin Ud din</td>
+            <td>10</td>
+            <td><button onclick="deleteRow()">Delete</button>
+            <td><button onclick="showForm()">Edit</button></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Usman</td>
+            <td>10</td>
+            <td><button onclick="deleteRow()">Delete</button>
+            <td><button onclick="showForm()">Edit</button></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Gufran</td>
+            <td>10</td>
+            <td><button onclick="deleteRow()">Delete</button>
+            <td><button onclick="showForm()">Edit</button></td>
+        </tr>
+    </table>
+
+    <form style="display: none;">
+        <div>
+            <label for="name">Id</label>
+            <input type="text" name="Name" id="userId">
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="Name" id="name">
+        </div>
+        <div>
+            <label for="class">Class</label>
+            <input type="number" name="class" id="class">
+        </div>
+        <button type="button" onclick="sub()">Submit</button>
+    </form>
+
+
+
+
+    <!-- <button onclick="showForm()">show user form </button> -->
+    <script>
+        // delete function start
+
+        function deleteRow() {
+            let delbtn = document.getElementsByTagName("button")[0];
+            delbtn.parentNode.parentNode.remove();
+        }
+        // delete function end
+
+        // form work start
+        function showForm() {
+            let form = document.getElementsByTagName("form")[0];
+            form.style.display = "block";
+            form.className = "formDisplay";
+             }
+
+        
+
+
+        // take button element
+
+
+        function sub() {
+
+           
+            let userId = document.getElementById("userId");
+            let name = document.getElementById("name");
+            let cls = document.getElementById("class");
+            let form = document.getElementsByTagName("form")[0];
+            let btn = document.getElementsByTagName("button")[1];
+
+
+
+            btn.parentNode.parentNode.children[0].textContent = userId.value;
+            btn.parentNode.parentNode.children[1].textContent = name.value;
+            btn.parentNode.parentNode.children[2].textContent = cls.value;
+            form.style.display = "none";
+
+            
+        }
+
+
+
+        // extra work
+        
+
+
+    
+
+
+        // this is main 
+        // btn.parentNode.parentNode.parentNode.childNodes[2]
+        // btn.parentNode.parentNode.parentNode.childNodes[2].childNodes[3].textContent = "hello"
+    </script>
+</body>
+
+</html>

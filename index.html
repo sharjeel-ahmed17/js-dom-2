@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up form </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            height: 100vh;
+            /* background: url("https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg") no-repeat; */
+            /* background-size: cover; */
+            background-color: rgb(131, 113, 113);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+
+        }
+
+        .formDesign {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px 20px;
+            width: 300px;
+            border-radius: 20px;
+            box-shadow: 7px 6px 17px 11px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 7px 6px 17px 11px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 7px 6px 17px 11px rgba(0, 0, 0, 0.75);
+
+        }
+
+        form>div {
+            margin-bottom: 20px;
+
+        }
+
+        /* form>div:nth-last-child(1)>p {
+            background-color: blue;
+            padding: 10px 0px;
+            color: white;
+
+        } */
+
+        form input {
+            width: 100%;
+            padding: 10px 0px;
+            border: none;
+            margin-top: 10px;
+            background: transparent;
+            /* padding-top: 5px; */
+            border-bottom: 2px solid white;
+            color: white;
+            font-size: 18px;
+            font-weight: 20px;
+
+        }
+
+        form label {
+            text-transform: capitalize;
+            color: white;
+            font-weight: 400;
+        }
+
+        form h1 {
+            margin-bottom: 20px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 25px;
+        }
+
+        form>div:nth-last-child(1) {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: transparent;
+            /* text-align: center; */
+            margin: auto;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #displayUserData {
+            width: 300px;
+            /* background-color: red; */
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="assignment">
+        <a href="./readmore.html"><button>second task</button></a>
+        <a href="./table.html"><button>third task</button></a>
+    </div>
+    <div class="formDesign">
+        <form action="#">
+            <h1>User sign up form</h1>
+            <div>
+                <label for="firstName">first Name</label>
+                <input type="text" name="" id="firstName" style="width: 100%;">
+            </div>
+
+            <div>
+                <label for="lastName">last Name</label>
+                <input type="text" name="" id="lastName">
+            </div>
+            <div>
+                <label for="email">email</label>
+                <input type="email" name="" id="email">
+            </div>
+            <div>
+                <label for="password">password</label>
+                <input type="password" name="" id="password">
+            </div>
+            <div>
+                <label for="confirmPassword">confirmPassword</label>
+                <input type="password" name="" id="confirmPassword">
+
+            </div>
+            <div>
+                <button type="submit" id="sub">Submit</button>
+                <!-- <p>already have an account log in here</p> -->
+
+
+            </div>
+        </form>
+    </div>
+    <div id="displayUserData"></div>
+    <script>
+        let submit = document.getElementById("sub");
+        submit.addEventListener("click", function (event) {
+            event.preventDefault();
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let displayUserData = document.getElementById("displayUserData");
+            displayUserData.innerHTML = `<h2>User Data</h2><br>First Name : ${firstName}<br>Last Name : ${lastName}<br>Email : ${email}<br>Password : ${password}`
+
+        })
+    </script>
+</body>
+
+</html>
